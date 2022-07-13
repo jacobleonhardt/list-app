@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { add } from '../list/listSlice'
 
@@ -10,7 +10,10 @@ export const AddItemForm = () => {
   const addItem = (e) => {
     e.preventDefault()
     dispatch(add(item))
+    e.target.reset()
   }
+
+  useEffect(() => {}, [item])
 
   return (
     <div>

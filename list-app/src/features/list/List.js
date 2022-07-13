@@ -7,11 +7,15 @@ export const List = () => {
 
   const dispatch = useDispatch()
   const list = useSelector(selectList)
+  const deleteItem = (e) => {
+    e.preventDefault()
+    dispatch(remove())
+  }
 
   return (
     <div className='list'>
       <ul>{ list.map( item => {
-      return <li key={list.indexOf(item)} >{ item } <button onClick={dispatch(remove())}>X</button></li>
+      return <li key={list.indexOf(item)} >{ item } <button onClick={deleteItem}>X</button></li>
     }) }</ul>
     </div>
   )
